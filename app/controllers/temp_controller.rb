@@ -1,7 +1,7 @@
 class TempController < ApplicationController
-  @@temp = ""
+
   def index
-      @client_location = @@temp
+    @client_location = params[:location]
     # habaak
   end
   def map
@@ -9,8 +9,8 @@ class TempController < ApplicationController
   end
   def find_location
       @client_location = params[:location]
-      @@temp = @client_location
-      redirect_to "/"
+
+      redirect_to "?location=#{@client_location}"
   end
 
   def search_hospital
